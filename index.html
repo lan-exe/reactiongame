@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reaction Test</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/5930/5930147.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+  <div class="nav-left">
+    <img src="https://cdn-icons-png.flaticon.com/512/5930/5930147.png" alt="Logo" class="logo">
+    <span class="site-name">ℝ𝔼𝔸ℂ𝕋𝕀𝕆ℕ 𝕋𝔼𝕊𝕋</span>
+  </div>
+  <div class="nav-right">
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('leaderboard')">Leaderboard</a>
+  </div>
+</nav>
+
+<!-- Home Section -->
+<div id="home" class="page-section">
+  <h1>𝐖𝐞𝐥𝐜𝐨𝐦𝐞 !</h1>
+  <div id="loginForm">
+    <form onsubmit="event.preventDefault(); login();">
+      <label for="username">Enter your username:</label>
+      <input type="text" id="username" placeholder="𝘶𝘴𝘦𝘳𝘯𝘢𝘮𝘦" required>
+
+      <label for="password">Enter your password:</label>
+      <input type="password" id="password" placeholder="𝘱𝘢𝘴𝘴𝘸𝘰𝘳𝘥" required>
+
+      <button type="submit">Start Game 🎮</button>
+    </form>
+  </div>
+
+  <div id="message"></div>
+
+  <div id="userInfo" style="display: none;">
+    <p id="welcomeMessage"></p>
+    <button onclick="logout()">Logout</button>
+    <button onclick="restartGame()">Play Again</button> <!-- Play Again Button -->
+  </div>
+</div>
+
+<!-- Leaderboard Section -->
+<div id="leaderboard" class="page-section" style="display: none;">
+  <div id="leaderboard">
+    <h3>𝐋𝐞𝐚𝐝𝐞𝐫𝐛𝐨𝐚𝐫𝐝 🏆 </h3>
+    <ul id="leaderboardList"></ul>
+  </div>
+</div>
+
+<!-- Section Control Script -->
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('.page-section');
+    sections.forEach(section => section.style.display = 'none');
+
+    const active = document.getElementById(id);
+    if (active) active.style.display = 'block';
+
+    // Only show user info in Home section
+    const userInfo = document.getElementById('userInfo');
+    if (id === 'home' && localStorage.getItem('loggedInUser')) {
+      userInfo.style.display = 'block';
+    } else {
+      userInfo.style.display = 'none';
+    }
+
+    // Show leaderboard only in About
+    if (id === 'leaderboard') loadLeaderboard();
+  }
+</script>
+
+<script src="script.js"></script>
+<footer>
+  <p>&copy; 2025 𝕝𝕒𝕟</p>
+</footer>
+</body>
+</html>

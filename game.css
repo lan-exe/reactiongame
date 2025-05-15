@@ -1,0 +1,167 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #dbe9f4, #f4faff);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+}
+
+/* Game Area */
+#gameArea {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f8ff, #e0f7fa);
+    animation: backgroundShift 10s ease-in-out infinite alternate;
+}
+
+/* Floating Circle */
+#circle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #557c93, #08203e);
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+#circle:hover {
+    transform: scale(1.1);
+}
+
+/* Scoreboard */
+#scoreboard {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #89f7fe, #66a6ff);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #002d72;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Timer */
+#timer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #fbc2eb, #a18cd1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #4a0072;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Game Over Message */
+#gameOverMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.2rem;
+    color: #ff1744;
+    font-weight: bold;
+    display: none;
+    animation: fadeInScale 1s ease-out;
+}
+
+/* Game Buttons */
+.game-buttons {
+    margin-top: 20px;
+    position: absolute;
+    bottom: 80px; /* slightly above the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.game-buttons button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    border: none;
+    border-radius: 8px;
+    color: #003366;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Special Effects */
+.red {
+    color: red;
+}
+
+.blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+
+/* Animations */
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes backgroundShift {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+    #scoreboard, #timer {
+        font-size: 1.2rem;
+        padding: 8px 16px;
+    }
+
+    #circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    #gameOverMessage {
+        font-size: 1.5rem;
+    }
+
+    .game-buttons button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}

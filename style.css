@@ -1,0 +1,166 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ebf4f5, #b5c6e0);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Navigation bar styles */
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #2e86de, #4facfe);
+    padding: 20px 40px;
+    color: white;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.8s ease-out;
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-left .logo {
+    width: 40px;
+    height: 40px;
+}
+
+.site-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-right a:hover {
+    color: #ffd700;
+}
+
+/* Page sections */
+.page-section {
+    margin-top: 100px;
+    width: 90%;
+    max-width: 600px;
+    backdrop-filter: blur(100px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.3s ease;
+    width: 100%;
+}
+
+input:focus {
+    border-color: #4facfe;
+    outline: none;
+}
+
+
+button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .nav-right {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-right a {
+        margin-left: 0;
+    }
+}

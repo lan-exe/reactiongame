@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speed Test</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/5930/5930147.png">
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+<div id="gameArea">
+  <div id="scoreboard">Score: 0</div>
+  <div id="timer" class="timer">Time: 30</div> <!-- Added a class to control the timer's styles -->
+  <div id="circle" onclick="catchCircle()"></div>
+
+  <div id="gameOverMessage">
+    Game Over! Final Score: <span id="finalScore"></span>
+    <div class="game-buttons">
+      <button onclick="startGame()">Play Again</button>
+      <button onclick="goHome()">Return Home</button>
+    </div>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
